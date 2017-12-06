@@ -1,0 +1,5 @@
+Separate accounts from contacts in leads and opportunitites
+
+Add contacts to opportunitity actions
+
+Deal with lead-opportunity merge shenanigans

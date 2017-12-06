@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<odoo>
+	<data>
+		<record id="otg_crm_opportunity_form" model="ir.ui.view">
+			<field name="name">otg.crm.opportunity.form</field>
+			<field name="model">crm.lead</field>
+			<field name="inherit_id" ref="crm.crm_case_form_view_oppor"/>
+			<field name="arch" type="xml">
+				<!-- Change Customer field to show companies only -->
+				<xpath expr="//sheet/group/group/field[@name='partner_id']" position="attributes">
+					<attribute name="string">Customer Account</attribute>
+					<attribute name="domain">[('is_company','=',True), ('is_address','=',False)]</attribute>
+				</xpath>
+				<xpath expr="//sheet/group/group/field[@name='partner_id']" position="after">
+					<field name="contact_id" 
+						domain="[('is_company','=',False),
+						('is_address','=',False),
+						('parent_id','=',partner_id),
+						('parent_id','!=',False)]"
+					/>
+				</xpath>
+			</field>
+		</record>
+
+		<record id="otg_crm_opportunity_form_simple" model="ir.ui.view">
+			<field name="name">otg.crm.opportunity.form.simple</field>
+			<field name="model">crm.lead</field>
+			<field name="inherit_id" ref="crm.view_create_opportunity_simplified"/>
+			<field name="arch" type="xml">
+				<!-- Change Customer field to show companies only -->
+				<xpath expr="//sheet/group/group/field[@name='partner_id']" position="attributes">
+					<attribute name="string">Customer Account</attribute>
+					<attribute name="domain">[('is_company','=',True), ('is_address','=',False)]</attribute>
+				</xpath>
+				<xpath expr="//sheet/group/group/field[@name='partner_id']" position="after">
+					<field name="contact_id" 
+						domain="[('is_company','=',False),
+						('is_address','=',False),
+						('parent_id','=',partner_id),
+						('parent_id','!=',False)]"
+					/>
+				</xpath>
+			</field>
+		</record>
+	</data>
+</odoo>
