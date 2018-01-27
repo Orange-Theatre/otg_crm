@@ -8,6 +8,7 @@ _logger = logging.getLogger(__name__)
 class Lead(models.Model):
 	_inherit = 'crm.lead'
 
+	# New fields
 	contact_id = fields.Many2one('res.partner', 'Contact')
 
 	@api.onchange('partner_id')

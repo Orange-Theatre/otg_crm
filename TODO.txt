@@ -3,3 +3,9 @@ Separate accounts from contacts in leads and opportunitites
 Add contacts to opportunitity actions
 
 Deal with lead-opportunity merge shenanigans
+
+MAIL
+	Separate internal, external, and activity feed in chatter
+		Fetchmail sends incoming mail to chatter. We'll have to allow this behavior but separate it somehow.
+		We can probably label client communications and internal communications and consider everything else activity.
+	Disable suggested partners by default
